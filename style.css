@@ -27,7 +27,7 @@ textarea {
     resize: vertical;
 }
 
-#result {
+#result { 
     margin-top: 15px;
     font-weight: bold;
 }
