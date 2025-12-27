@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin : auto;
+    background: #020617;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+}
