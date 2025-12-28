@@ -4,6 +4,8 @@ const result = document.getElementById("result");
 const preview = document.getElementById("preview");
 const explanationBox = document.getElementById("explanation");
 const library = document.getElementById("library");
+const resetBtn = document.getElementById("resetBtn");
+
 
 const regexLibrary = [
   { name: "Digits", pattern: "\\d+" },
@@ -115,6 +117,15 @@ function loadLibrary() {
 
 loadLibrary();
 loadFromURL();
+
+resetBtn.addEventListener("click", () => {
+  textInput.value = "";
+  regexInput.value = "";
+  preview.textContent = "";
+  explanationBox.textContent = "";
+  result.textContent = "Waiting for input…";
+  history.replaceState(null, "", window.location.pathname);
+});
 
 textInput.addEventListener("input", testRegex);
 regexInput.addEventListener("input", testRegex);
