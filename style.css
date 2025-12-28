@@ -80,3 +80,30 @@ mark {
     font-size: 14px;
     line-height: 1.5;
 }
+
+.library-title {
+    margin-bottom: 6px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.library {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.library button {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.library button:hover {
+    background: #1e293b;
+}
