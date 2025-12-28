@@ -22,6 +22,16 @@ label {
     margin-bottom: 15px;
 }
 
+textarea,
+input {
+    width: 100%;
+    padding: 10px;
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    border-radius: 5px;
+}
+
 textarea {
     height: 120px;
     resize: vertical;
@@ -30,4 +40,27 @@ textarea {
 #result { 
     margin-top: 15px;
     font-weight: bold;
+}
+
+.preview-title {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+#preview {
+    margin-top: 8px;
+    padding: 10px;
+    background: #020617;
+    border: 1px solid #334155;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    min-height: 80px;
+}
+
+mark {
+    background: #22c55e;
+    color: #020617;
+    padding: 0 2px;
+    border-radius: 3px;
 }
