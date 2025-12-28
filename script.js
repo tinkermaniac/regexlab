@@ -3,6 +3,17 @@ const regexInput = document.getElementById("regexInput");
 const result = document.getElementById("result");
 const preview = document.getElementById("preview");
 const explanationBox = document.getElementById("explanation");
+const library = document.getElementById("library");
+
+const regexLibrary = [
+  { name: "Digits", pattern: "\\d+" },
+  { name: "Email", pattern: "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}" },
+  { name: "URL", pattern: "https?:\\/\\/.+" },
+  { name: "Phone", pattern: "\\+?\\d{10,13}" },
+  { name: "Word", pattern: "\\w+" },
+  { name: "Whitespace", pattern: "\\s+" },
+  { name: "Strong Password", pattern: "(?=.*[A-Z])(?=.*\\d).{8,}" }
+];
 
 function escapeHTML(str) {
   return str
@@ -12,31 +23,25 @@ function escapeHTML(str) {
 }
 
 function explainRegex(pattern) {
-  const explanations = [];
-
   const rules = [
     { regex: /\\d/, text: "Matches any digit (0–9)" },
-    { regex: /\\w/, text: "Matches any word character (letters, digits, underscore)" },
-    { regex: /\./, text: "Matches any single character" },
+    { regex: /\\w/, text: "Matches any word character" },
+    { regex: /\./, text: "Matches any character" },
     { regex: /\+/, text: "Matches one or more of the previous token" },
     { regex: /\*/, text: "Matches zero or more of the previous token" },
     { regex: /\?/, text: "Makes the previous token optional" },
     { regex: /\^/, text: "Anchors the match to the start of the string" },
     { regex: /\$/, text: "Anchors the match to the end of the string" },
-    { regex: /\[[^\]]+\]/, text: "Matches any character inside the brackets" }
+    { regex: /\[[^\]]+\]/, text: "Matches any character inside brackets" }
   ];
 
-  rules.forEach(rule => {
-    if (rule.regex.test(pattern)) {
-      explanations.push(rule.text);
-    }
-  });
+  const explanations = rules
+    .filter(rule => rule.regex.test(pattern))
+    .map(rule => rule.text);
 
-  if (explanations.length === 0) {
-    return "No explanation available for this pattern yet.";
-  }
-
-  return explanations.join(". ") + ".";
+  return explanations.length
+    ? explanations.join(". ") + "."
+    : "No explanation available for this pattern yet.";
 }
 
 function testRegex() {
@@ -66,19 +71,29 @@ function testRegex() {
 
     result.textContent = `✅ ${matches.length} match(es) found`;
 
-    const highlighted = escapeHTML(text).replace(
+    preview.innerHTML = escapeHTML(text).replace(
       regex,
-      (match) => `<mark>${match}</mark>`
+      match => `<mark>${match}</mark>`
     );
-
-    preview.innerHTML = highlighted;
-
-  } catch (err) {
+  } catch {
     result.textContent = "⚠️ Invalid regex pattern";
     preview.textContent = escapeHTML(text);
-    explanationBox.textContent = "";
   }
 }
+
+function loadLibrary() {
+  regexLibrary.forEach(item => {
+    const btn = document.createElement("button");
+    btn.textContent = item.name;
+    btn.onclick = () => {
+      regexInput.value = item.pattern;
+      testRegex();
+    };
+    library.appendChild(btn);
+  });
+}
+
+loadLibrary();
 
 textInput.addEventListener("input", testRegex);
 regexInput.addEventListener("input", testRegex);
