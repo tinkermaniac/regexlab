@@ -17,7 +17,7 @@ An interactive regex playground to test, visualise, and understand regular expre
 
 ## Roadmap
 - [X] Draft 1: Basic regex testing
-- [] Draft 2: Match highlighting
+- [X] Draft 2: Match highlighting
 - [] Draft 3: Human-readable explanation
 - [] Draft 4: Regex pattern library
 - [] Draft 5: Shareable links and UI polish
