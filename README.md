@@ -19,8 +19,8 @@ An interactive regex playground to test, visualise, and understand regular expre
 - [X] Draft 1: Basic regex testing
 - [X] Draft 2: Match highlighting
 - [X] Draft 3: Human-readable explanation
-- [] Draft 4: Regex pattern library
-- [] Draft 5: Shareable links and UI polish
+- [X] Draft 4: Regex pattern library
+- [X] Draft 5: Shareable links and UI polish
 
 ## Motivation 
 Regular expressions are powerful but hard to read and debug. RegexLab aims to make them more intuitive through interactivity and visual feedback.

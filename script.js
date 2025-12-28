@@ -44,12 +44,32 @@ function explainRegex(pattern) {
     : "No explanation available for this pattern yet.";
 }
 
+function updateURL(text, pattern) {
+  const params = new URLSearchParams();
+  if (text) params.set("text", text);
+  if (pattern) params.set("pattern", pattern);
+  history.replaceState(null, "", "?" + params.toString());
+}
+
+function loadFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const text = params.get("text");
+  const pattern = params.get("pattern");
+
+  if (text) textInput.value = text;
+  if (pattern) regexInput.value = pattern;
+
+  if (text || pattern) testRegex();
+}
+
 function testRegex() {
   const text = textInput.value;
   const pattern = regexInput.value;
 
   preview.innerHTML = "";
   explanationBox.textContent = "";
+
+  updateURL(text, pattern);
 
   if (!pattern) {
     result.textContent = "Enter a regex pattern.";
@@ -94,6 +114,7 @@ function loadLibrary() {
 }
 
 loadLibrary();
+loadFromURL();
 
 textInput.addEventListener("input", testRegex);
 regexInput.addEventListener("input", testRegex);
