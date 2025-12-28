@@ -5,7 +5,7 @@ An interactive regex playground to test, visualise, and understand regular expre
 - Live regex testing
 - Instant match / no-match feedback
 - Invalid regex detection
-- Runs fully in the browse (no backend)
+- Runs fully in the browser (no backend)
 
 ## Tech Stack
 - HTML
@@ -18,7 +18,7 @@ An interactive regex playground to test, visualise, and understand regular expre
 ## Roadmap
 - [X] Draft 1: Basic regex testing
 - [X] Draft 2: Match highlighting
-- [] Draft 3: Human-readable explanation
+- [X] Draft 3: Human-readable explanation
 - [] Draft 4: Regex pattern library
 - [] Draft 5: Shareable links and UI polish
 
@@ -26,5 +26,6 @@ An interactive regex playground to test, visualise, and understand regular expre
 Regular expressions are powerful but hard to read and debug. RegexLab aims to make them more intuitive through interactivity and visual feedback.
 
 ___
+~ Ritwik Dadarwal
 
 Built as a part of Flavortown.
